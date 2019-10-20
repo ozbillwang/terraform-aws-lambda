@@ -1,6 +1,6 @@
 # terraform-aws-lambda
 
-This Terraform module creates an AWS Lambda function
+This Terraform module creates an AWS Lambda function with pre-build zip package file on s3 bucket.
 
 ## Notes
 
