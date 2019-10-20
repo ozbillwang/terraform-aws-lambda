@@ -12,10 +12,10 @@ resource "aws_lambda_function" "lambda" {
   publish                        = local.publish
   tags                           = var.tags
 
-  # Use a generated filename to determine when the source code has changed.
-
-  filename   = data.external.built.result.filename
-  depends_on = [null_resource.archive]
+  # This bucket must be existed and reside in the same AWS region where you are creating the Lambda function
+  s3_bucket         = var.s3_bucket
+  s3_key            = var.s3_key
+  s3_object_version = var.s3_object_version
 
   # Add dynamic blocks based on variables.
 

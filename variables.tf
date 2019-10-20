@@ -12,25 +12,26 @@ variable "runtime" {
   type = string
 }
 
-variable "source_path" {
-  description = "The absolute path to a local file or directory containing your Lambda source code"
+variable "s3_bucket" {
+  description = "(Optional) The S3 bucket location containing the function's deployment package. Conflicts with filename(source_path). This bucket must reside in the same AWS region where you are creating the Lambda function."
   type        = string
+  default     = null
+}
+
+variable "s3_key" {
+  description = "(Optional) The S3 key of an object containing the function's deployment package. Conflicts with filename."
+  type        = string
+  default     = null
 }
 
 # Optional variables specific to this module.
-
-variable "build_command" {
-  description = "The command to run to create the Lambda package zip file"
+variable "s3_object_version" {
+  description = "(Optional) The object version containing the function's deployment package."
   type        = string
-  default     = "python build.py '$filename' '$runtime' '$source'"
+  default     = null
 }
 
-variable "build_paths" {
-  description = "The files or directories used by the build command, to trigger new Lambda package builds whenever build scripts change"
-  type        = list(string)
-  default     = ["build.py"]
-}
-
+# Optional variables specific to this module.
 variable "cloudwatch_logs" {
   description = "Set this to false to disable logging your Lambda output to CloudWatch Logs"
   type        = bool
