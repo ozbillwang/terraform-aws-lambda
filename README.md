@@ -8,7 +8,7 @@ This terraform module manages aws lambda function zip file on s3 bucket only. If
 
 ## Explanation why manage lambda function with zip file is better than generating on-fly zip file
 
-With the [discussion](https://github.com/hashicorp/terraform/issues/8344) and [this](https://github.com/hashicorp/terraform/issues/8344#issuecomment-361014199) and more practices, I can't find the best way to manage lambda function with all languages and keep zip file updated on-fly properly.
+With the [discussion](https://github.com/hashicorp/terraform/issues/8344) and [this](https://github.com/hashicorp/terraform/issues/8344#issuecomment-361014199) and more real project practices, I can't find the best way to manage lambda function with all languages and keep zip file updated on-fly properly.
 
 I don't want to commit the zip file directly in repository.
 
